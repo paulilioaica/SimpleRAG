@@ -1,5 +1,3 @@
-from sklearn.metrics.pairwise import cosine_similarity
-
 class Database:
     def __init__(self, *args, **kwargs):
         return NotImplementedError
