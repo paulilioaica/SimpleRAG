@@ -2,11 +2,15 @@ from database import Database
 import sqlite3
 import numpy as np
 import json
+import os
 from sklearn.metrics.pairwise import cosine_similarity
 
 class VectorDatabase(Database):
-    def __init__(self, db_name='vectors.db'):
+    def __init__(self, db_name='default.db'):
         """Initialize the connection to the database and create the table if it doesn't exist."""
+        if not os.path.exists(os.path.join(os.getcwd(), db_name)):
+            raise FileNotFoundError(f"Database file '{db_name}' not found. Please ensure it exists.")
+        
         self.conn = sqlite3.connect(db_name)
         self.cursor = self.conn.cursor()
         self._create_table()
