@@ -2,7 +2,7 @@ import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
 
 class LLM:
-    def __init__(self, model_type="microsoft/Phi-3.5-mini-instruct", system_message="You are a helpful AI assistant.") -> None:
+    def __init__(self, model_type="HuggingFaceTB/SmolLM2-135M-Instruct", system_message="You are a helpful AI assistant.") -> None:
         
         torch.random.manual_seed(0)
         
