@@ -25,7 +25,7 @@ class LLM:
         )
 
         self.generation_args = {
-            "max_new_tokens": 100,
+            "max_new_tokens": 200,
             "return_full_text": False,
             'early_stopping': True,
             "temperature": 0.0,

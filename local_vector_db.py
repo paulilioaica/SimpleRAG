@@ -26,7 +26,7 @@ class VectorDatabase(Database):
         if not isinstance(vector, np.ndarray):
             vector = np.array(vector)
         
-        vector_json = json.dumps(vector.tolist())  # Convert NumPy array to JSON
+        vector_json = json.dumps(vector.tolist())
         self.cursor.execute('INSERT INTO vectors (text, embedding) VALUES (?, ?)', (text, vector_json))
         self.conn.commit()
 
@@ -61,6 +61,6 @@ class VectorDatabase(Database):
         """Enable usage of the class as a context manager."""
         return self
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
+    def __exit__(self):
         """Ensure the database connection is closed when used in a context manager."""
         self.close()
